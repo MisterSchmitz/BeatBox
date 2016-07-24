@@ -50,11 +50,11 @@ public class BeatBox {
         downTempo.addActionListener(new MyDownTempoListener());
         buttonBox.add(downTempo);
 
-        JButton serializeIt = new JButton("Serialize");
+        JButton serializeIt = new JButton("Save Pattern");
         serializeIt.addActionListener(new MySendListener());
         buttonBox.add(serializeIt);
 
-        JButton restore = new JButton("Restore");
+        JButton restore = new JButton("Restore Pattern");
         restore.addActionListener(new MyReadInListener());
         buttonBox.add(restore);
 
@@ -171,10 +171,15 @@ public class BeatBox {
             }
 
             try {
-                FileOutputStream fileStream = new FileOutputStream(new File("Checkbox.ser"));
+                JFileChooser fileSave = new JFileChooser();
+                fileSave.showSaveDialog(theFrame);
+
+                FileOutputStream fileStream = new FileOutputStream(fileSave.getSelectedFile());
                 ObjectOutputStream os = new ObjectOutputStream(fileStream);
                 os.writeObject(checkboxState);
+
             } catch(Exception ex) {
+                System.out.println("couldn't write the pattern out");
                 ex.printStackTrace();
             }
         } // close method
@@ -184,10 +189,17 @@ public class BeatBox {
         public void actionPerformed(ActionEvent a) {
             boolean[] checkboxState = null;
             try {
-                FileInputStream fileIn = new FileInputStream(new File("Checkbox.ser"));
+                JFileChooser fileOpen = new JFileChooser();
+                fileOpen.showOpenDialog(theFrame);
+
+                FileInputStream fileIn = new FileInputStream(fileOpen.getSelectedFile());
                 ObjectInputStream is = new ObjectInputStream(fileIn);
                 checkboxState = (boolean[]) is.readObject();
-            } catch(Exception ex) {ex.printStackTrace();}
+
+            } catch(Exception ex) {
+                System.out.println("couldn't read the pattern in");
+                ex.printStackTrace();
+            }
 
             for (int i = 0; i < 256; i++) {
                 JCheckBox check = (JCheckBox) checkboxList.get(i);
