@@ -157,7 +157,7 @@ public class BeatBox {
             float tempoFactor = sequencer.getTempoFactor();
             sequencer.setTempoFactor((float)(tempoFactor * 0.97));
         }
-    } // close inner classo
+    } // close inner class
 
     public class MySendListener implements ActionListener {
         public void actionPerformed(ActionEvent a) {
@@ -199,9 +199,8 @@ public class BeatBox {
             }
 
             sequencer.stop();
-            buildTrackAndStart();
         } // close method
-    }
+    } // close inner class
 
     public void makeTracks(int[] list) {
         for (int i = 0; i < 16; i++) {
