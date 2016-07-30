@@ -58,6 +58,10 @@ public class BeatBox {
         restore.addActionListener(new MyReadInListener());
         buttonBox.add(restore);
 
+        JButton random = new JButton("Random Pattern");
+        random.addActionListener(new MyRandomListener());
+        buttonBox.add(random);
+
         JButton reset = new JButton("Reset");
         reset.addActionListener(new MyResetListener());
         buttonBox.add(reset);
@@ -209,6 +213,22 @@ public class BeatBox {
             for (int i = 0; i < 256; i++) {
                 JCheckBox check = (JCheckBox) checkboxList.get(i);
                 if (checkboxState[i]) {
+                    check.setSelected(true);
+                } else {
+                    check.setSelected(false);
+                }
+            }
+
+            sequencer.stop();
+        } // close method
+    } // close inner class
+
+    public class MyRandomListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+
+            for (int i = 0; i < 256; i++) {
+                JCheckBox check = (JCheckBox) checkboxList.get(i);
+                if (Math.random() < 0.0625) {   // 1 in 16 chance of turning on an instrument at a given beat
                     check.setSelected(true);
                 } else {
                     check.setSelected(false);
