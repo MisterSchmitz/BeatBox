@@ -26,7 +26,7 @@ public class BeatBox {
 
     public void buildGUI() {
         theFrame = new JFrame("Cyber BeatBox");
-        theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         BorderLayout layout = new BorderLayout();
         JPanel background = new JPanel(layout);
         background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -58,6 +58,10 @@ public class BeatBox {
         restore.addActionListener(new MyReadInListener());
         buttonBox.add(restore);
 
+        JButton reset = new JButton("Reset");
+        reset.addActionListener(new MyResetListener());
+        buttonBox.add(reset);
+
         Box nameBox = new Box(BoxLayout.Y_AXIS);
         for (int i = 0; i < 16; i++) {
             nameBox.add(new Label(instrumentNames[i]));
@@ -86,6 +90,7 @@ public class BeatBox {
         theFrame.setBounds(50,50,300,300);
         theFrame.pack();
         theFrame.setVisible(true);
+        theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } // close method
 
     public void setUpMidi() {
@@ -208,6 +213,18 @@ public class BeatBox {
                 } else {
                     check.setSelected(false);
                 }
+            }
+
+            sequencer.stop();
+        } // close method
+    } // close inner class
+
+    public class MyResetListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            
+            for (int i = 0; i < 256; i++) {
+                JCheckBox check = (JCheckBox) checkboxList.get(i);
+                    check.setSelected(false);
             }
 
             sequencer.stop();
