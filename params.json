@@ -1,0 +1,6 @@
+{
+  "name": "Beatbox",
+  "tagline": "MIDI beatbox program written in Java",
+  "body": "# BeatBox\r\nMIDI beatbox program written in Java - built upon lessons in book, Head First Java.\r\n\r\n### How can I get the code?\r\nFeel free to Fork your own version of this code and play around within the files.\r\n\r\n### What are the technical requirements?\r\nJava Standard Edition version 5.0 or higher\r\n\r\n### What's Included\r\nWithin the download you'll find the following files:\r\n```\r\nBeatBox.java\r\n```\r\n\r\n### How do I run the application?\r\n1. Download the included .java file into local directory of your choice.  \r\n\r\n2. From the command prompt, compile the java file:  \r\n`javac BeatBox.java`  \r\n\r\n3. Start the application:  \r\n`java BeatBox`  \r\n\r\n4. Make sick beats.\r\n\r\n### Application Features\r\n* Create beat patterns on a looping 16-beat board\r\n* Utilize up to 16 different MIDI instruments per pattern\r\n* Increase / Decrease the beat tempo\r\n* Save and Load patterns\r\n* Generate random patterns - you never know where inspiration may strike!\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
