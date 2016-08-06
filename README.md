@@ -10,19 +10,19 @@ Java Standard Edition version 5.0 or higher
 ### What's Included
 Within the download you'll find the following files:
 ```
-BeatBox.java
+source
+|BeatBox.java
+classes
+|java class files
+BeatBox.jar
 ```
 
 ### How do I run the application?
-1. Download the included .java file into local directory of your choice.  
+1. Ensure you have at least J2SE 5.0 on your machine.
 
-2. From the command prompt, compile the java file:  
-`javac BeatBox.java`  
+2. Download and run BeatBox.jar.
 
-3. Start the application:  
-`java BeatBox`  
-
-4. Make sick beats.
+3. Make sick beats.
 
 ### Application Features
 * Create beat patterns on a looping 16-beat board
